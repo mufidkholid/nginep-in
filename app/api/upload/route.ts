@@ -21,7 +21,7 @@ export const PUT = async (request: Request) => {
   return NextResponse.json(blob);
 };
 
-export const DELELET = async (request: Request) => {
+export const DELETE = async (request: Request) => {
   const { searchParams } = new URL(request.url);
   const imageUrl = searchParams.get("imageUrl") as string;
   await del(imageUrl);
