@@ -3,7 +3,11 @@ import { NextRequest, NextResponse } from "next/server";
 const ProtectedRoutes = ["/my-reservation", "/checkout", "/admin"];
 
 export function middleware(request: NextRequest) {
-  const token = request.cookies.get("next-auth.session-token")?.value || request.cookies.get("__Secure-next-auth.session-token")?.value;
+  const token =
+    request.cookies.get("next-auth.session-token")?.value ||
+    request.cookies.get("__Secure-next-auth.session-token")?.value ||
+    request.cookies.get("authjs.session-token")?.value ||
+    request.cookies.get("__Secure-authjs.session-token")?.value;
 
   const isLoggedIn = !!token;
   const { pathname } = request.nextUrl;
