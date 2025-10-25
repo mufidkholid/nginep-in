@@ -2,7 +2,7 @@ import ReservationDetail from "@/components/ReservationDetail";
 import { Metadata } from "next";
 import { Suspense } from "react";
 
-export const metada: Metadata = {
+export const metadata: Metadata = {
   title: "Reservation Detail",
 }
 const MyReservationDetail = async ({ params }: { params: Promise<{ id: string }> }) => {
